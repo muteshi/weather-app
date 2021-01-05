@@ -1,9 +1,13 @@
 const request = require("request");
+const geocode = require("./utils/geocode");
+const forecast = require("./utils/forecast");
 
-const url =
-  "http://api.weatherstack.com/current?access_key=06cb779babb0f7fde143cfd776563c31&query=Nairobi";
+geocode("Kajiado", (error, data) => {
+  console.log("Error", error);
+  console.log("Data", data);
+});
 
-request({ url }, (err, res) => {
-  const data = JSON.parse(res.body);
-  console.log(data.current);
+forecast(-75.70564388, 44.1545, (error, data) => {
+  console.log("Error", error);
+  console.log("Data", data);
 });
